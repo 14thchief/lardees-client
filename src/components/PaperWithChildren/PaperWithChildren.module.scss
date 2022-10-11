@@ -1,0 +1,34 @@
+.paper {
+    background-color: rgb(241, 241, 241);
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+.long {
+    height: 92vh;
+    animation: goLong 0.4s;
+}
+
+.off {
+    display: none;
+    animation: goOut 0.5s;
+}
+
+@keyframes goLong {
+    0% {
+        height: 10vh;
+    }
+    100% {
+        height: 92vh;
+    }
+}
+
+@keyframes goOut {
+    0% {
+        height: 92vh;
+    }
+    100% {
+        height: 0vh;
+    }
+}
