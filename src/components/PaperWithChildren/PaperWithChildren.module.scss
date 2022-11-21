@@ -1,13 +1,18 @@
 .paper {
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(247, 247, 247);
     position: fixed;
     bottom: 0;
     width: 100vw;
 }
 
 .long {
-    height: 92vh;
-    animation: goLong 0.4s;
+    height: 93vh;
+    animation: goLong 0.3s ease-out;
+}
+
+.short {
+    height: 64vh;
+    background-color: white;
 }
 
 .off {
@@ -17,10 +22,13 @@
 
 @keyframes goLong {
     0% {
-        height: 10vh;
+        height: 40vh;
+    }
+    10% {
+        height: 70vh
     }
     100% {
-        height: 92vh;
+        height: 93vh;
     }
 }
 

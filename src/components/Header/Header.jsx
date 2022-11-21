@@ -1,9 +1,46 @@
-import { FaSearch, FaHamburger, FaCartArrowDown, FaCookieBite, FaUserCheck, FaUserAlt, FaSearchLocation } from 'react-icons/fa';
+import { FaSearch, FaHamburger, FaCartArrowDown, FaCookieBite, FaUserCheck, FaUserAlt, FaSearchLocation, FaUser } from 'react-icons/fa';
 import {Divider, ListItemIcon, Menu, MenuItem } from '@mui/material';
 import logo from '../../assets/lardees.png';
 import { useState } from 'react';
+import NavigationLinks from './NavigationLinks';
+import './Header.scss';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({navList}) => {
+    const menuList = navList || [
+        {
+            to: "cart",
+            text: "My Cart",
+            icon: <FaCartArrowDown className={`text-2xl mr-2 text-orange-500`} />,
+            action: null,
+        },
+        {
+
+            to: "catalogue",
+            text: "Food Catalogue",
+            icon: <FaCookieBite className={`text-2xl mr-2 text-orange-500`} />,
+            action: null,
+        },
+        {
+            to: "tracker",
+            text: "Track Order",
+            icon: <FaSearchLocation className={`text-2xl mr-2 text-orange-500`} />,
+            action: null,
+        },
+        {
+            to: "register",
+            text: "Create account",
+            icon: <FaUserAlt className={`text-xl mr-2 text-orange-500`} />,
+            action: true,
+        },
+        {
+            to: "login",
+            text: "Login",
+            icon: <FaUserCheck className={`text-2xl mr-2 text-orange-500`} />,
+            action: true,
+        },
+    ];
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -14,77 +51,35 @@ const Header = () => {
     };
 
     return (
-        <section className={`rounded-b-2xl border w-full p-2 flex flex-col bg-red-700`}>
+        <section className={`Header rounded-b-2xl w-full p-2 flex flex-col`} >
             <div className={`w-full mb-4 flex items-center justify-between`}>
-                <div className={`w-1/4 h-10 overflow-hidden`}>
-                    <img src={logo} className={`h-10`} alt="logo" />
+                <div className={` px-1 w-1/4 h-10 overflow-hidden`}>
+                    <Link to="/"><img src={logo} className={`h-13`} alt="logo" /></Link>
                 </div>
-                <div className={`w-1/6 flex justify-center lg:hidden`}>
+                <div className='flex items-center justify-between w-32 px-2'>
+                    <p className='flex items-center text-xs text-white'>Sign in <span className='text-orange-400 '><FaUser size={23} /></span></p>
+
+                    <div className='relative'>
+                        <p className='text-white'><FaCartArrowDown size={28} /></p>
+                        <div className='absolute top-0 right-0 h-4 w-4 bg-orange-600 rounded-full text-center'>
+                            <p className='text-white text-xs'><small>{50}</small></p>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className={`w-1/6 flex justify-center lg:hidden`}>
                     <button onClick={handleClick} className={`text-white opacity-90`}><FaHamburger size={'25'}/></button>
-                    <Menu
+                    <NavigationLinks 
+                        linksList={menuList} 
+                        handleClose={handleClose}
                         anchorEl={anchorEl}
-                        id="account-menu"
                         open={open}
-                        onClose={handleClose}
-                        onClick={handleClose}
-                        PaperProps={{
-                        elevation: 0,
-                        sx: {
-                            overflow: 'visible',
-                            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                            mt: 1.5,
-                            '& .MuiAvatar-root': {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                            },
-                            '&:before': {
-                            content: '""',
-                            display: 'block',
-                            position: 'absolute',
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: 'background.paper',
-                            transform: 'translateY(-50%) rotate(45deg)',
-                            zIndex: 0,
-                            },
-                        },
-                        }}
-                        transformOrigin={{ horizontal: 'left', vertical: 'top' }}
-                        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                    >
-                        <MenuItem>
-                            <FaCartArrowDown className={`text-2xl mr-2 text-orange-500`} /> My Cart
-                        </MenuItem>
-                        <MenuItem>
-                            <FaCookieBite className={`text-2xl mr-2 text-orange-500`} /> Food Catalogue
-                        </MenuItem>
-                        <MenuItem>
-                            <FaSearchLocation className={`text-2xl mr-2 text-orange-500`} /> Track Order
-                        </MenuItem>
-                        <Divider />
-                        <MenuItem>
-                        <ListItemIcon>
-                            <FaUserAlt className={`text-xl mr-2 text-orange-500`} />
-                        </ListItemIcon>
-                            Create account
-                        </MenuItem>
-                        <MenuItem>
-                        <ListItemIcon>
-                            <FaUserCheck className={`text-2xl mr-2 text-orange-500`} />
-                        </ListItemIcon>
-                            Login
-                        </MenuItem>
-                    </Menu>
-                </div>
+                    />
+                </div> */}
             </div>
 
-            <div className={`rounded-full border w-full my-4 flex items-center bg-white opacity-90`}>
+            <div className={`rounded-full border w-full my-4 flex items-center bg-white `}>
                 <input type="text" className={`rounded-l-full w-4/5 py-2 pl-4 focus:outline-none`} placeholder="Search for something tasty..." />
-                <button className={`rounded-full border w-1/5 p-2.5 flex justify-center bg-gray-100`}><FaSearch /></button>
+                <button className={`rounded-full border w-1/5 h-10 p-2.5 flex justify-center bg-red-700 text-white`}><FaSearch /></button>
             </div>
         </section>
     )

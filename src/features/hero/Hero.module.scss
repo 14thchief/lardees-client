@@ -1,40 +1,50 @@
 
-.main {
+main.main {
     padding: 15px;
     margin: 0px;
-    background-color: rgb(238, 238, 238);
+    background-color: #f5f3f3;
+    scrollbar-width: none !important;
 
-    section {
+    div.subSection {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3vh;
+        scrollbar-width: none;
 
         h1 strong {
-            font-size: 1.14em;
+            font-size: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: black;
         }
         button {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 14px;
             width: 20%;
             color: rgb(85, 82, 82);
         }
     }
 
-    section.horizontalScroll {
+    div.horizontalScroll {
         width: 92vw;
         flex-shrink: none;
         flex-wrap: nowrap;
         overflow-y: hidden;
         overflow-x: scroll !important;
+        scrollbar-width: none;
+    }
+    .horizontalScroll::-webkit-scrollbar {
+        display: none;
     }
 
-    section.verticalScroll {
+    div.verticalScroll {
         justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
 
     section.fixedBottom {
@@ -43,35 +53,20 @@
         bottom: 0;
         display: flex;
         align-items: center;
+        justify-content: center;
+        padding: 10px;
 
-        div {
-            width: 50%;
-            min-height: 70px;
-
-            button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 80%;
-                min-width: max-content;
-                padding: 1rem;
-                color: rgb(231, 231, 231);
-                background-color: rgb(7, 151, 7);
-                font-weight: bold;
-                font-size: 1.14em;
-                border: none;
-    
-                span {
-                    font-size: smaller;
-                    position: relative;
-                    top: -14px;
-                    left: -20px;
-                    background-color: rgb(29, 25, 25);
-                    border-radius: 50px;
-                    width: 25px;
-                    height: 25px;
-                }
-            }
+        button {
+            background-color: #3c6b18d7;
+            color: white;
+            width: 80vw;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-weight: 700;
         }
     }
+}
+
+.main::-webkit-scrollbar {
+    display: none;
 }

@@ -1,3 +1,5 @@
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 /**
  * MidCard - renders a card with an image and three blocks of text.
@@ -10,17 +12,18 @@
 const MidCard = ({imageSrc, textArray, footText}) => {
 
     return (
-        <div className={`rounded-xl border w-1/2 min-w-max bg-white mr-2`}>
-            <div className={` w-full h-24 pt-2`}>
-                {imageSrc && <img src={imageSrc} alt={'card'} />}
+        <div className={`rounded-xl w-48 h-52 min-w-56 bg-white mr-4`}>
+            <div className={` w-full h-28 pt-1 overflow-hidden`}>
+                {imageSrc && <img src={imageSrc} alt={'card'} className={`h-40 w-44 mx-auto`} />}
             </div>
-            <div className={`rounded-t-2xl border-t-2 px-4 py-2`}>
-                <p><strong>{textArray[0]}</strong></p>
-                <p><strong>{textArray[1]}</strong></p>
-                <p><strong>{textArray[2]}</strong></p>
+            <div className={`bg-white rounded-t-xl text-start px-4 py-2`}>
+                <p className="text-black h-4"><strong><small>{textArray[0]}</small></strong></p>
+                <p className="text-black h-4"><small>{textArray[1]}</small></p>
+                <p className="text-black h-4"><small>{textArray[2]}</small></p>
             </div>
-            <div className={`flex justify-end px-4 py-2`}>
-                <p className={`text-green-700`}><strong>{footText}</strong></p>
+            <div className={`flex justify-between px-4 pb-2`}>
+                <p className={`text-green-700`}><strong><small>₦{footText}</small></strong></p>
+                <span className="rounded-lg border px-2 pt-1 bg-red-700 text-white"><Link to={`/product`}><FaArrowRight size={14} /></Link></span>
             </div>
         </div>
     )
