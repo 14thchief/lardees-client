@@ -5,7 +5,7 @@ import rice_and_stew from '../../assets/rice_stew_assorted.png';
 import SmallCard from "../../components/Cards/SmallCard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaPepperHot, FaPlus, FaStar } from "react-icons/fa";
 import gsap from "gsap";
 
 const Product = ({product}) => {
@@ -61,13 +61,14 @@ const Product = ({product}) => {
                 </div>
                 <PaperWithChildren variant={`short`}>
                 <div className={`${classes.productDetailContainer} ${classes.productImageContainer} `}>
-                    <h1>{product?.title || "Lardees Rice Sauce "}</h1>
-                    <div className={`${classes.subDiv}`}>
-                        <Link to={"/"}><SmallCard imageSrc={null} text={`popular`} variant={`small`} /></Link>
+                    <h1>{product?.title || "Basmati Rice & Lardees Pepper Sauce "}</h1>
+                    <div className={`${classes.subDiv} flex`}>
+                        <Link to={"/"}><SmallCard imageSrc={<FaStar color="orange" />} text={`popular`} variant={`small`} /></Link>
+                        <Link to={"/"}><SmallCard imageSrc={<FaPepperHot color="red" />} text={`hot`} variant={`small`} /></Link>
                     </div>
                     <div className={`${classes.subDiv}`}>
                         <small>Description</small>
-                        <p>
+                        <p className="text-sm">
                             Lardees Nigerian Jollof rice 
                             made with fresh vegetables and spice 
                             with a choice range of sides and proteins. 
@@ -103,7 +104,7 @@ const Product = ({product}) => {
                                                 }))
                                             }}
                                             className={`${index === orderForm?.side?.length -1? 'visible': 'invisible'}`}
-                                            >+</button>
+                                            ><FaPlus /></button>
                                             {index !== 0 && 
                                             <button 
                                                 onClick={(e)=>{
@@ -151,7 +152,7 @@ const Product = ({product}) => {
                                                 }))
                                             }}
                                             className={`${index === orderForm?.protein?.length -1? 'visible': 'invisible'}`}
-                                            >+</button>
+                                            ><FaPlus /></button>
                                             {index !== 0 && 
                                             <button 
                                                 onClick={(e)=>{
@@ -183,9 +184,10 @@ const Product = ({product}) => {
                                     </div>
                                     <button
                                         className={` text-white`}
+                                        onClick={(e)=>{ e.preventDefault()}}
                                     >
                                         <span className="mr-2">Add to cart</span>
-                                        <small>NGN 25,000</small>
+                                        <p className={`text-gray-200 text-xs`}>₦ 55,000</p>
                                     </button>
                                 </div>
                             </div>

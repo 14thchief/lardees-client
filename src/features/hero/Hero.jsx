@@ -68,20 +68,20 @@ const Hero = () => {
                     <button>View all <FaArrowRight /></button>
                 </div>
                 <div className={`${classes.horizontalScroll}  ${classes.subSection}`}>
-                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
-                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
-                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
+                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
+                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
+                    <Link to={`product`}><MidCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} /></Link>
                 </div>
             </section>
             <section className={`${classes.popularComboSection}`} >
                 <div className={`${classes.heading}  ${classes.subSection}` }>
-                    <h1><strong>Hot Combos <span className="ml-2"><FaFire color="orangered"/></span></strong></h1>
+                    <h1><strong>Hot Combos <span className="ml-2 animate animate-pulse"><FaFire size={24} color="orangered"/></span></strong></h1>
                     {/* <button>View all <FaArrowRight /></button> */}
                 </div>
                 <div className={`${classes.verticalScroll}  ${classes.subSection}`}>
-                    <LargeCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} />
-                    <LargeCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} />
-                    <LargeCard imageSrc={rice_and_stew} textArray={['Jollof rice', 'Fried plantain', 'Beef/Chicken/Fish']} footText={`2,500`} />
+                    <LargeCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} />
+                    <LargeCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} />
+                    <LargeCard imageSrc={rice_and_stew} textArray={['White rice and sauce', 'Plantain (Choice)', 'Beef/Chicken/Fish']} footText={`2,500`} />
                 </div>
             </section>
             <section className={`${classes.fixedBottom}`}>
